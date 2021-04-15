@@ -1,13 +1,15 @@
-import { ChemicalElement } from "./chemical-element.js";
+import { ChemicalElement } from "./chemical-element";
 // @ts-ignore
-import * as d3 from "https://unpkg.com/d3?module";
-import { ElementFigure } from "./element-figure.js";
-import {clipPathD, map, range, TAU} from "./constants.js";
-import {setAttrs} from "./functions.js";
+import * as d3 from 'd3';
+import { ElementFigure } from "./element-figure";
+import {clipPathD, map, range, TAU} from "./constants";
+import {setAttrs} from "./functions";
+import * as jsonData  from '../../data/periodic-table-data.json';
+
+import '../scss/style.scss';
 
 let elements: ChemicalElement[] = [];
 let figures: ElementFigure[] = [];
-const container = d3.select('#container');
 let step = 0;
 
 const animateElements = () => {
@@ -43,6 +45,11 @@ const animateElements = () => {
 }
 
 window.addEventListener('load', async () => {
+    const divElement = document.createElement('div');
+    divElement.id = 'container';
+    document.body.appendChild(divElement);
+
+    const container = d3.select('#container');
 
     const svgRoot = container.append("svg");
     setAttrs(svgRoot, { width: "0px", height: "0px" });
@@ -52,9 +59,7 @@ window.addEventListener('load', async () => {
     const clipPathPath = clipPath.append("path");
     setAttrs(clipPathPath, { d: clipPathD });
 
-    const response = await fetch('/data/periodic-table-data.json');
-    const data = (await response.json()) as { elements: object[] };
-    elements = data.elements.map(element => ChemicalElement.factory(element));
+    elements = Array.from(jsonData.elements).map(element => ChemicalElement.factory(element));
 
     figures = elements.map(element => new ElementFigure(element));
 

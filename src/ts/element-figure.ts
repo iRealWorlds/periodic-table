@@ -1,8 +1,8 @@
-import { ChemicalElement } from "./chemical-element.js";
+import { ChemicalElement } from "./chemical-element";
 import { Selection, BaseType } from 'd3';
-import {clipPathD, range} from "./constants.js";
-import {Atom} from "./atom.js";
-import {setAttrs, setStyle} from "./functions.js";
+import {clipPathD, range} from "./constants";
+import {Atom} from "./atom";
+import {setAttrs, setStyle} from "./functions";
 
 export class ElementFigure
 {

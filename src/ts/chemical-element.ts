@@ -1,4 +1,4 @@
-import {categoryColors, defaultColor} from "./constants.js";
+import {categoryColors, defaultColor} from "./constants";
 
 class ElementData {
     name: string|null = null;
