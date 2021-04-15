@@ -1,7 +1,7 @@
 import {ChemicalElement} from "./chemical-element";
 import {Selection} from "d3";
-import {setAttrs} from "./functions";
-import {TAU} from "./constants";
+import {setAttrs} from "../functions";
+import {TAU} from "../constants";
 
 export class Atom {
     private figure: Selection<any, any, any, any>|undefined;

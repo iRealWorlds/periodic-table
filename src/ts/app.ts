@@ -1,7 +1,7 @@
-import { ChemicalElement } from "./chemical-element";
+import { ChemicalElement } from "./models/chemical-element";
 // @ts-ignore
 import * as d3 from 'd3';
-import { ElementFigure } from "./element-figure";
+import { ElementFigure } from "./models/element-figure";
 import {clipPathD, map, range, TAU} from "./constants";
 import {setAttrs} from "./functions";
 import * as jsonData  from '../../data/periodic-table-data.json';
@@ -62,7 +62,6 @@ window.addEventListener('load', async () => {
     elements = Array.from(jsonData.elements).map(element => ChemicalElement.factory(element));
 
     figures = elements.map(element => new ElementFigure(element));
-
     for (const figure of figures) {
         figure.render(container);
     }

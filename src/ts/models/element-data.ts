@@ -1,0 +1,29 @@
+export class ElementData {
+    name: string | null = null;
+    appearance: string | null = null;
+    atomicMass: number | null = null;
+    boil: number | null = null;
+    category: string | null = null;
+    color: string | null = null;
+    density: number | null = null;
+    discoveredBy: string | null = null;
+    melt: number | null = null;
+    molarHeat: number | null = null;
+    namedBy: string | null = null;
+    number: number | null = null;
+    period: number | null = null;
+    phase: 'Solid' | 'Liquid' | 'Gas' | null = null;
+    source: string | null = null;
+    spectralImage: string | null = null;
+    summary: string | null = null;
+    symbol: string | null = null;
+    positionX = 1;
+    positionY = 1;
+    shells: number[] = [];
+    electronConfiguration: string | null = null;
+    electronConfigurationSemantic: string | null = null;
+    electronAffinity: number | null = null;
+    electronegativityPauling: number | null = null;
+    ionizationEnergies: number[] = [];
+    cpkHex: string | null = null;
+}
